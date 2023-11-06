@@ -1,0 +1,130 @@
+*{
+    font-family: Arial, Helvetica, sans-serif;
+     box-sizing: border-box;
+}
+body{
+    margin: 0;
+    color: white;
+    line-height: 20px; 
+}
+
+.container{
+    height: 100vh;
+    background-image: url(./images/download.jpeg);
+    background-position:center;
+    background-size:cover ;
+    background-repeat: no-repeat;
+    position: relative;
+}
+.heading{
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    background: darkgray;
+}
+.heading h1{
+    width: 120px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 60px;
+    padding-left: 20px;
+    transition: background-color 1s;
+}
+.item{
+    list-style:none;
+    padding: 14px 40px;
+    border-radius: 10px;
+    background-color: inherit;
+    transition: background-color 1s;
+}
+.item:hover {
+    background-color: black;
+}
+li{
+    float: left;
+    text-align: center;
+}
+a{
+    color: white; 
+    text-decoration: none;
+    transition: color 200ms ease;
+} 
+a:hover{
+    color: black;
+}
+.main-page{
+    padding: 20px 40px;
+    margin: 30px 280px;
+    display: flex;
+    justify-content: center;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+}
+.main-page form h1 {
+    color: #111;
+    text-align: center;
+    font-weight:bold;
+    background: darkgray;
+    text-transform: uppercase;
+    padding: 20px;
+    /* margin-bottom: 20px;
+    margin-top: 30px;
+} */
+}
+form {
+    display: grid;
+    justify-content: center;
+}
+.input-group{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+    position: relative;
+    padding: 10px 10px;
+    border-radius: 10px;
+}
+.input-group input {
+    flex-basis: 68%;
+    outline: 0;
+    border: 0;
+    padding: 10px 0;
+    border-bottom: 1px solid #999;
+    color: #333;
+    font-size: 16px;
+    border-radius: 5px;
+}
+form label {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 3;
+    display: block;
+    padding-bottom: 3px;
+    margin-right: 4px;
+}
+.password-box img {
+    width: 25px;
+    cursor: pointer;
+     margin-left: -30px;
+}
+.password-box{
+    display: flex;
+    align-items: center;
+    outline: 0;
+    border: 0;
+}
+form button{
+    background: #141a34;
+    color: #fff;
+    border-radius: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    padding: 10px 40px;
+    outline: 0;
+    cursor: pointer;
+    display: block;
+    margin: 30px auto 10px;
+}
+#submit-error{
+    color: red;
+}

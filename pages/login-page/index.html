@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Login Page</title> 
+    <link rel="stylesheet" href="./index.css">
+</head>
+  <body>
+    <div class="container">
+        <div class="heading">
+            <h1> 
+                <a href="./index.html">CUPID</a></h1>
+           <div class="nav-menu">
+            <ul>
+                <li class="item">Register</li>
+                <li class="item">Password Reset</li>
+            </ul>
+            </div>
+        </div>
+        <div class="main-page">
+            <form action="">
+            <h1>LOGIN FORM</h1>
+                <div class="input-group">
+                    <label>Email  </label>
+                    <input type="email" placeholder="Enter your email" id="email" required>
+                    </div>
+              
+                    <div class="input-group password-box">
+                      <label>Password  </label>
+                      <input type="password" placeholder="password" id="password" required>
+                      <img src="./images/eye-close.png" id="eye-icon">
+                    </div>
+                    <button onclick="return validateForm()">Submit</button>
+                    <span id="submit-error"></span>   
+            </form>
+
+        </div>
+    </div>
+    <script>
+        
+    let eyeicon = document.getElementById("eye-icon")
+    let password = document.getElementById("password")
+    //when you click icon, it shows or hide password and changes image of icon
+    eyeicon.onclick = function(){
+        if (password.type == 'password'){
+            password.type = "text";
+            eyeicon.src = "./images/eye-open.png";
+        }else{
+            password.type = "password";
+            eyeicon.src = "./images/eye-close.png";
+        }
+    }
+
+    </script>
+  </body>
+</html>
