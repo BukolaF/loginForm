@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Image Gallery Page</title> 
+    <link rel="stylesheet" href="./index.css"  type="text/css">
+</head>
+  <body>
+    <div class="about-section">
+        <h1 style="font-size:26px;">About Us Page</h1>
+        <p>Lorem ipsum dolor sit amet consectetur.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis fugit fugiat debitis vitae vel perferendis.</p>
+      </div>
+
+
+      <h2 style="text-align:center">Our Team</h2>
+      <div class="row">
+        <div class="column">
+          <div class="card">
+            <img src="./images/image9.jpeg" style="width:100%">
+            <div class="container">
+              <h2>Madam</h2>
+              <p class="title">HOP</p>
+              <p>Some text...</p>
+              <p>email</p>
+            </div>
+          </div>
+        </div>
+      
+        <div class="column">
+          <div class="card">
+            <img src="./images/image7.jpeg" style="width:100%">
+            <div class="container">
+              <h2>Mister</h2>
+              <p class="title">CEO</p>
+              <p>Some text...</p>
+              <p>email</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="column">
+          <div class="card">
+            <img src="./images/image8.jpeg" style="width:100%">
+            <div class="container">
+              <h2>Miss</h2>
+              <p class="title">MD</p>
+              <p>Some text...</p>
+              <p>email</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div>
+    <h2 style="font-weight: 300; font-weight: bolder;">Our Services</h2>
+    <div class="gallery-wrap">
+      <img src="./images/back.png" id="backbutton">
+      <div class="gallery">
+        <div>
+            <span><img src="./images/images1.jpeg"></span>
+            <span><img src="./images/image2.jpeg"></span>
+            <span><img src="./images/image3.jpeg"></span>
+        </div>
+        <div>
+            <span><img src="./images/image4.jpeg"></span>
+            <span><img src="./images/image5.jpeg"></span>
+            <span><img src="./images/image6.jpeg"></span>
+        </div>
+      </div>
+      <img src="./images/next.png" id="nextbutton">
+  </div>
+      </div>
+  <script>
+    let scrollContainer = document.querySelector('.gallery');
+    let backbutton = document.getElementById('backbutton');
+    let nextbutton = document.getElementById('nextbutton');
+
+
+    scrollContainer.addEventListener("wheel", (evt) =>{
+    evt.preventDefault();
+    scrollContainer.scrollLeft += evt.deltaY;
+    scrollContainer.style.scrollBehavior = "auto";
+  });
+//to move to the next image set on clicking the button
+    nextbutton.addEventListener("click",()=>{
+      scrollContainer.style.scrollBehavior = "smooth";
+    //width is at 900 so it moves at 900
+      scrollContainer.scrollLeft += 900;
+    });
+
+    backbutton.addEventListener("click",()=>{
+      scrollContainer.style.scrollBehavior = "smooth";
+      scrollContainer.scrollLeft -= 900;
+    });
+
+
+
+    </script>
+  </body>
+</html>

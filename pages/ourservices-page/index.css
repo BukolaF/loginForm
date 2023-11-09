@@ -1,0 +1,92 @@
+*{
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+}
+body{
+    background: whitesmoke;
+    margin: 0;
+}
+.about-section {
+    padding: 50px;
+    text-align: center;
+    background-color: #474e5d;
+    color: white;
+}
+.gallery{
+    width: 900px;
+    display: flex;
+    /* to keep the overflow hidden */
+    overflow-x: scroll;
+}
+body h2{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.gallery div{
+    width: 100%;
+    display: grid;
+    /* so pictures are divided into 3 and 
+    all can stay on a rw */
+    grid-template-columns: auto auto auto;
+    grid-gap: 20px;
+    padding: 10px;
+    flex: none;
+}
+.gallery div img{
+    /* to reduce the size of pictures */ 
+    width: 100%;
+    /* image color grey */
+    filter: grayscale(100%);
+    transition: transform 0.5s;
+}
+.gallery::-webkit-scrollbar{
+    display: none;
+}
+.gallery-wrap{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+}
+#backbutton, #nextbutton{
+    width: 50px;
+    cursor: pointer;
+    margin:40px ;
+}
+.gallery div img:hover{
+    filter: grayscale(0);
+    cursor: pointer;
+    transform: scale(1.1);
+}
+.column {
+    float: left;
+    width: 33.3%;
+    margin-bottom: 16px;
+    padding: 0 8px;
+}
+  
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    margin: 40px;
+}
+.container {
+    padding: 0 16px;
+  }
+  
+.container::after, .row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+  
+.title {
+    color: grey;
+}
+@media screen and (max-width: 650px) {
+    .column {
+      width: 100%;
+      display: block;
+    }
+  }
+  
