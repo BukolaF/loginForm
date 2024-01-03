@@ -9,7 +9,7 @@
 </head>
 <body>
   <button type="button" class="return-button"><i class="fa fa-fw fa-backward"></i>
-    <a href="../landing-page/index.html">Back</a>
+    <a href="../laanding-page/index.html">Back</a>
     </button>
     <div class="container" id="contact">
         <h2>CONTACT US</h2>
@@ -19,13 +19,14 @@
           <p><i class="fa fa-phone fa-fw icon "></i> Phone: +234 801234567</p>
           <p><i class="fa fa-envelope fa-fw icon"> </i> Email: mail@mail.com</p>
           <br>
-          <form action="#" id="contact-form">
-            <p><input type="text" id="name" placeholder="Name" required name="Name"></p>
-            <p><input  type="text" id="email" placeholder="Email" required name="Email"></p>
-            <p><input  type="text" id="Phone" placeholder="Phone Number" required name="Phone"></p>
-            <p><input  type="text" id="Subject" placeholder="Subject" required name="Subject"></p>
+          <div id="error-message" style="color: red;"></div>
+          <form action="#" onsubmit="return validateForm()" id="contact-form">
+            <p><input type="text" id="name" placeholder="Name" name="Name"></p>
+            <p><input  type="text" id="email" placeholder="Email"  name="Email"></p>
+            <p><input  type="text" id="phone" placeholder="Phone Number"  name="Phone"></p>
+            <p><input  type="text" id="subject" placeholder="Subject" name="Subject"></p>
             <div class="textarea-field field">
-            <textarea cols="15" id="message" rows="10" placeholder="Your Message" required name="Message"></textarea>
+            <textarea cols="15" id="message" rows="10" placeholder="Your Message" name="Message"></textarea>
             </div>
             <p>
               <button type="submit">
@@ -35,32 +36,94 @@
           </form>
 
 <script>
-  let contactForm = document.getElementById("contact-form");
 
-contactForm.addEventListener("submit", (e) => {
-  e.preventDefault();
 
-  let name = document.getElementById("name");
-  let email = document.getElementById("email");
-  let phone = document.getElementById('phone')
-  let subject = document.getElementById("subject");
-  let message = document.getElementById("message");
+function validateForm() {
+// Storing Field Values In Variables
+const form = document.querySelector('form');
+const name = document.getElementById("name").value;
+const email = document.getElementById("email").value;
+const phone = document.getElementById("phone").value;
+const subject = document.getElementById("subject").value;
+const contactMessage = document.getElementById("message").value;
+const errorMessage = document.getElementById('error-message');
+const emailReg = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
-  if (name.value === "" && email.value === "" && phone.value==="" && subject.value==="" && message.value=== "") {
-    alert("Ensure you input a value in all fields!");
-  } else {
-    alert("This form has been successfully submitted!");
-    console.log(
-      `This form has a information from ${name.value} with ${email.value} and message ${message.value};`
-    );
 
-    name.value = "";
-    email.value = "";
-    phone.value = "";
-    subject.value = "";
-    message.value = ""
-  }
-});
+function sendEmail(){
+    const bodyMessage = `${name}<br> ${phone} <br>  ${email}<br> sent a message: ${contactMessage}`;
+    Email.send({
+        Host : "smtp.elasticemail.com",
+        Username : "bukolafavour25@gmail.com",
+        Password : "9DDAA6E301E58F8F0846BD5F62958603E334",
+        To : 'bukolafavour25@gmail.com',
+        From : "bukolafavour25@gmail.com",
+        Subject : `${subject} received from ${name}`,
+        Body : bodyMessage
+    }).then(
+      message => {
+        if (message == "OK"){
+            Swal.fire({
+                title: "Success!",
+                text: "Contact copy sent to your email!",
+                icon: "success"
+              });
+        }
+            }
+        
+    )
+        };
+
+
+if (name != '' && email != '' && phone != '' && subject != '' && contactMessage != ''){
+    e.preventDefault();
+    sendEmail()
+    return true
+} else if(phone.length < 11) {
+errorMessage.innerHTML= "The Contact No. must be at least 11 digit long!";
+return false;
+}
+else if (!email.match(emailReg)) {
+errorMessage.innerHTML ="Invalid Email Address...!!!";
+return false;
+} else {
+errorMessage.innerHTML = "All fields are required.....!";
+return false;
+}
+
+}
+
+
+
+
+
+
+//   let contactForm = document.getElementById("contact-form");
+
+// contactForm.addEventListener("submit", (e) => {
+//   e.preventDefault();
+
+//   let name = document.getElementById("name");
+//   let email = document.getElementById("email");
+//   let phone = document.getElementById('phone')
+//   let subject = document.getElementById("subject");
+//   let message = document.getElementById("message");
+
+//   if (name.value === "" && email.value === "" && phone.value==="" && subject.value==="" && message.value=== "") {
+//     alert("Ensure you input a value in all fields!");
+//   } else {
+//     alert("This form has been successfully submitted!");
+//     console.log(
+//       `This form has a information from ${name.value} with ${email.value} and message ${message.value};`
+//     );
+
+//     name.value = "";
+//     email.value = "";
+//     phone.value = "";
+//     subject.value = "";
+//     message.value = ""
+//   }
+// });
 </script>
       
 </body>

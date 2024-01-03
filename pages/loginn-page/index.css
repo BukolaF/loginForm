@@ -10,7 +10,7 @@ body{
 
 html{
     height: 100%;
-    background-image: url(./images/download.jpeg);
+    background-image: url(../assets/wallpaper.jpeg);
     background-position:center;
     background-size:cover ;
     background-repeat: no-repeat;
@@ -58,7 +58,7 @@ a{
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
 }
 .main-page form h1 {
-    color:darkgrey;
+    color:white;
     text-align: center;
     font-weight:bold;
     text-transform: uppercase;

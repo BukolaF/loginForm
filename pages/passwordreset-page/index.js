@@ -103,10 +103,10 @@ let eyeicon = document.getElementById("eye-icon")
     eyeicon.onclick = function(){
          if (passwordSee.type == 'password'){
              passwordSee.type = "text";
-             eyeicon.src = "./images/open.jpeg";
+             eyeicon.src = "../assets/open.jpeg";
         }else{
              passwordSee.type = "password";
-             eyeicon.src = "./images/close.jpeg";
+             eyeicon.src = "../assets/close.jpeg";
    }
 }
 

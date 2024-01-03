@@ -13,34 +13,34 @@
            <div class="nav-menu">
             <ul>
                 <li class="item">
-                  <a href="../passwordreset-page\/index.html"> Password Reset
+                  <a href="../passwordreset-page/index.html"> Password Reset
                   </a>
                   </li>
             </ul>
             </div>
         </div>
         <div class="main-page">
-            <form action="">
+            <form id="loginForm">
             <h1>LOGIN FORM</h1>
                 <div class="input-group">
-                    <label>Email  </label>
-                    <input type="email" placeholder="Enter your email" id="email" required>
+                    <label>Username  </label>
+                    <input type="email" placeholder="Enter your username" id="email">
                 </div>
               
                     <div class="input-group password-box">
                       <label>Password</label>
-                      <input type="password" placeholder="password" id="password" required>
-                      <img src="./images/eye-open.png" id="eye-icon">
+                      <input type="password" placeholder="password" id="password">
+                      <img src="../assets/open.jpeg" id="eye-icon">
                   
                     </div>
-                    <button onclick="return validateForm()">Submit</button>
-                    <span id="submit-error"></span>  
+                    <button id="submit">Submit</button>
+                    <div id="error-messages" style="color: red;"></div> 
                     <label>
                         <input type="checkbox" checked="checked" name="remember" style="margin-bottom:10px;margin-left:10px;"> Remember me
                       </label>
                       <div class="footer">
                         <div class="return-button"><i class="fa fa-fw fa-backward"></i>
-                          <a href="../landing-page/index.html">Back</a>  
+                          <a href="../laanding-page/index.html">Back</a>  
                         </div>                      
                       <!-- <div class="register-button">Click here to register
                       <a href="../register-page/index.html" class="register-button-section">Register</a>
@@ -57,12 +57,58 @@
     eyeicon.onclick = function(){
         if (password.type == 'password'){
             password.type = "text";
-            eyeicon.src = "./images/eye-open.png";
+            eyeicon.src = ".../assets/open.jpeg";
         }else{
             password.type = "password";
-            eyeicon.src = "./images/eye-close.png";
+            eyeicon.src = "../assets/close.jpeg";
         }
     }
+
+
+
+const loginForm = document.getElementById('loginForm');
+loginForm.addEventListener('submit', validateForm )
+
+function validateForm(event) {
+    event.preventDefault();
+
+    const email = document.getElementById('email');
+    const password = document.getElementById('password');
+    const errorMessages = document.getElementById('error-messages');
+
+    function validateEmail(email) {
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    return emailRegex.test(email);
+}
+
+
+function validatePassword(password) {
+    const minLength = 8;
+    const hasUpperCase = /[A-Z]/.test(password);
+    const hasLowerCase = /[a-z]/.test(password);
+    const hasNumber = /\d/.test(password);
+
+    return (
+        password.length >= minLength && hasUpperCase && hasLowerCase && hasNumber
+    );
+}
+
+    if (!validateEmail(email.value)) {
+        errorMessages.innerHTML= 'Please enter a valid email address.';
+        setTimeout(function(){errorMessages.style.display = 'none';}, 3000);
+        return;
+    }
+
+    // Validate password
+    if (!validatePassword(password.value)) {
+        errorMessages.innerHTML =' Please enter a valid password.';
+        setTimeout(function(){errorMessages.style.display = 'none';}, 3000);
+        return;
+    }
+    alert('Login successful!');
+}
+
+
 
     </script>
   </body>
