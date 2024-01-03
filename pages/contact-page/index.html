@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Page</title>
+    <link rel="stylesheet" href="./index.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+  <button type="button" class="return-button"><i class="fa fa-fw fa-backward"></i>
+    <a href="../landing-page/index.html">Back</a>
+    </button>
+    <div class="container" id="contact">
+        <h2>CONTACT US</h2>
+        <p>Lets get in touch. Send us a message:</p>
+        <div style="margin-top:28px">
+          <p><i class="fa fa-map-marker fa-fw icon "></i> Lagos, Nigeria</p>
+          <p><i class="fa fa-phone fa-fw icon "></i> Phone: +234 801234567</p>
+          <p><i class="fa fa-envelope fa-fw icon"> </i> Email: mail@mail.com</p>
+          <br>
+          <form action="#" id="contact-form">
+            <p><input type="text" id="name" placeholder="Name" required name="Name"></p>
+            <p><input  type="text" id="email" placeholder="Email" required name="Email"></p>
+            <p><input  type="text" id="Phone" placeholder="Phone Number" required name="Phone"></p>
+            <p><input  type="text" id="Subject" placeholder="Subject" required name="Subject"></p>
+            <div class="textarea-field field">
+            <textarea cols="15" id="message" rows="10" placeholder="Your Message" required name="Message"></textarea>
+            </div>
+            <p>
+              <button type="submit">
+                <i class="fa fa-paper-plane"></i> SEND MESSAGE
+              </button>
+            </p>
+          </form>
+
+<script>
+  let contactForm = document.getElementById("contact-form");
+
+contactForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  let name = document.getElementById("name");
+  let email = document.getElementById("email");
+  let phone = document.getElementById('phone')
+  let subject = document.getElementById("subject");
+  let message = document.getElementById("message");
+
+  if (name.value === "" && email.value === "" && phone.value==="" && subject.value==="" && message.value=== "") {
+    alert("Ensure you input a value in all fields!");
+  } else {
+    alert("This form has been successfully submitted!");
+    console.log(
+      `This form has a information from ${name.value} with ${email.value} and message ${message.value};`
+    );
+
+    name.value = "";
+    email.value = "";
+    phone.value = "";
+    subject.value = "";
+    message.value = ""
+  }
+});
+</script>
+      
+</body>
+</html>

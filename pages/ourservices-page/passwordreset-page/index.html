@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Reset Pages</title>
+    <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+    <div class="heading">
+        <h1> CUPID</h1>
+           <div class="nav-menu">
+            <ul>
+            <li class="item">
+                <a href="../login-page/index.html">Go to Login</a>
+                </li>
+            </ul>
+            </div>
+     </div>
+        <div class="main-page">
+            <form  action="#" id="reset-form">
+                <h1>Reset Password</h1>
+                <div class="input-group">
+                    <label>Full Name</label>
+                    <input type="text" placeholder="Enter your name" id="name" onkeyup="validateName()" required>
+                    <span id="name-error"></span>
+                </div>
+              
+                <div class="input-group">
+                      <label>Email</label>
+                      <input type="email" placeholder="Enter Email" id="email" onkeyup="validateEmail()" required>
+                      <span id="email-error"></span>
+                </div>   
+                <div class="input-group password-box">
+                      <label>New Password</label>
+                      <input type="password"  placeholder="type your password"  id="password" onkeyup="validatePassword()"required>
+                      <img src="./images/close.jpeg" id="eye-icon">
+                      <span id="password-error"></span>
+                </div>
+                <div class="input-group">
+                    <label>Retype Password</label>
+                    <input type="password" placeholder="Retype Password" id="password-retype" onkeyup="validatePassword()"required>
+                    <span id="error-txt"></span>
+              </div>
+                <button onclick="return validateForm()" type="submit">Submit</button>
+                <span id="submit-error"></span>
+        </form>
+        
+        </div>
+        <script src="https://smtpjs.com/v3/smtp.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="./index.js"></script>
+
+</body>
+</html>

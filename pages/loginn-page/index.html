@@ -4,16 +4,18 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <title>Login Page</title> 
     <link rel="stylesheet" href="./index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
   <body>
     <div class="container">
         <div class="heading">
-            <h1> 
-                <a href="./index.html">CUPID</a></h1>
+            <h1>CUPID</a></h1>
            <div class="nav-menu">
             <ul>
-                <li class="item">Register</li>
-                <li class="item">Password Reset</li>
+                <li class="item">
+                  <a href="../passwordreset-page\/index.html"> Password Reset
+                  </a>
+                  </li>
             </ul>
             </div>
         </div>
@@ -23,17 +25,28 @@
                 <div class="input-group">
                     <label>Email  </label>
                     <input type="email" placeholder="Enter your email" id="email" required>
-                    </div>
+                </div>
               
                     <div class="input-group password-box">
-                      <label>Password  </label>
+                      <label>Password</label>
                       <input type="password" placeholder="password" id="password" required>
-                      <img src="./images/eye-close.png" id="eye-icon">
+                      <img src="./images/eye-open.png" id="eye-icon">
+                  
                     </div>
                     <button onclick="return validateForm()">Submit</button>
-                    <span id="submit-error"></span>   
+                    <span id="submit-error"></span>  
+                    <label>
+                        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:10px;margin-left:10px;"> Remember me
+                      </label>
+                      <div class="footer">
+                        <div class="return-button"><i class="fa fa-fw fa-backward"></i>
+                          <a href="../landing-page/index.html">Back</a>  
+                        </div>                      
+                      <!-- <div class="register-button">Click here to register
+                      <a href="../register-page/index.html" class="register-button-section">Register</a>
+                      </div> -->
+                      </div>
             </form>
-
         </div>
     </div>
     <script>
