@@ -20,7 +20,7 @@
           <p><i class="fa fa-envelope fa-fw icon"> </i> Email: mail@mail.com</p>
           <br>
           <div id="error-message" style="color: red;"></div>
-          <form action="#" onsubmit="return validateForm()" id="contact-form">
+          <form action="#" method="post" onsubmit="return validateForm()" id="contact-form">
             <p><input type="text" id="name" placeholder="Name" name="Name"></p>
             <p><input  type="text" id="email" placeholder="Email"  name="Email"></p>
             <p><input  type="text" id="phone" placeholder="Phone Number"  name="Phone"></p>
@@ -37,10 +37,7 @@
 
 <script>
 
-
-function validateForm() {
-// Storing Field Values In Variables
-const form = document.querySelector('form');
+const form = document.querySelectorAll('form');
 const name = document.getElementById("name").value;
 const email = document.getElementById("email").value;
 const phone = document.getElementById("phone").value;
@@ -49,51 +46,29 @@ const contactMessage = document.getElementById("message").value;
 const errorMessage = document.getElementById('error-message');
 const emailReg = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
-
-function sendEmail(){
-    const bodyMessage = `${name}<br> ${phone} <br>  ${email}<br> sent a message: ${contactMessage}`;
-    Email.send({
-        Host : "smtp.elasticemail.com",
-        Username : "bukolafavour25@gmail.com",
-        Password : "9DDAA6E301E58F8F0846BD5F62958603E334",
-        To : 'bukolafavour25@gmail.com',
-        From : "bukolafavour25@gmail.com",
-        Subject : `${subject} received from ${name}`,
-        Body : bodyMessage
-    }).then(
-      message => {
-        if (message == "OK"){
-            Swal.fire({
+function validateForm() {
+          
+if (name == '' && email == '' && phone == '' && subject == '' && contactMessage == ''){
+  errorMessage.innerHTML = "All fields are required.....!";
+} else if (phone < 11){
+errorMessage.innerHTML= "The Contact No. must be at least 11 digit long!";
+} else if (!email.match(emailReg)) {
+errorMessage.innerHTML ="Invalid Email Address...!!!";
+} else if(name != '' && email != '' && phone != '' && subject != '' && contactMessage != ''){
+  Swal.fire({
                 title: "Success!",
                 text: "Contact copy sent to your email!",
                 icon: "success"
               });
-        }
-            }
-        
-    )
-        };
-
-
-if (name != '' && email != '' && phone != '' && subject != '' && contactMessage != ''){
-    e.preventDefault();
-    sendEmail()
     return true
-} else if(phone.length < 11) {
-errorMessage.innerHTML= "The Contact No. must be at least 11 digit long!";
-return false;
-}
-else if (!email.match(emailReg)) {
-errorMessage.innerHTML ="Invalid Email Address...!!!";
-return false;
-} else {
-errorMessage.innerHTML = "All fields are required.....!";
-return false;
 }
 
+form.addEventListener("submit", (e)=> {
+    e.preventDefault();
+validateForm()
+});
+
 }
-
-
 
 
 

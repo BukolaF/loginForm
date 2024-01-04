@@ -156,3 +156,7 @@ a:hover{
     display: flex;
     margin: 20px;
 }
+@media screen and (max-height: 650px) {
+    .input-group {width: 100%;
+    display: block;}
+}
