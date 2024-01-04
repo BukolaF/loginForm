@@ -157,6 +157,6 @@ a:hover{
     margin: 20px;
 }
 @media screen and (max-width: 600px) {
-    .row {width: 100%;
+    .input-group, button {width: 50%;
     }
 }
