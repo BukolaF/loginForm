@@ -156,7 +156,7 @@ a:hover{
     display: flex;
     margin: 20px;
 }
-@media screen and (max-height: 650px) {
-    form {width: 100%;
-    display: block;}
+@media screen and (max-width: 600px) {
+    .row {width: 100%;
+    }
 }
