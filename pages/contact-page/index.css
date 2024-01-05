@@ -50,6 +50,11 @@ form button:hover {
       margin-top: 0;
     }
   }
+  @media screen and (max-width: 600px) {
+    .return-button {
+      margin-bottom: 10px;
+    }
+  }
 .icon{
     font-size: xx-large;
     margin-right: 10px;
