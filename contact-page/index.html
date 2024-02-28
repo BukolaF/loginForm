@@ -9,7 +9,7 @@
 </head>
 <body>
   <button type="button" class="return-button"><i class="fa fa-fw fa-backward"></i>
-    <a href="../laanding-page/index.html">Back</a>
+    <a href="./index.html">Back</a>
     </button>
     <div class="container" id="contact">
         <h2>CONTACT US</h2>
@@ -50,10 +50,13 @@ function validateForm() {
           
 if (name == '' && email == '' && phone == '' && subject == '' && contactMessage == ''){
   errorMessage.innerHTML = "All fields are required.....!";
+  return false
 } else if (phone < 11){
 errorMessage.innerHTML= "The Contact No. must be at least 11 digit long!";
+return false
 } else if (!email.match(emailReg)) {
 errorMessage.innerHTML ="Invalid Email Address...!!!";
+return false
 } else if(name != '' && email != '' && phone != '' && subject != '' && contactMessage != ''){
   Swal.fire({
                 title: "Success!",
